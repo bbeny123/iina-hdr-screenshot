@@ -24,7 +24,7 @@ Capture an **HDR Screenshot** in two ways:
 > [!NOTE]
 > **Frame Accuracy:** Screenshots are captured at the **nearest keyframe**. The resulting image may not be the exact paused frame.
 
-### Prerequisites
+## Prerequisites
 
 - **IINA** 1.4.0 or later
 - **FFmpeg**
@@ -33,8 +33,6 @@ Capture an **HDR Screenshot** in two ways:
 > To use `zscale`, **FFmpeg** must be compiled with `--enable-libzimg`
 
 ## Installation
-
-**Requirement**: IINA 1.4.0 or later.
 
 Install the plugin using one of these methods:
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="preferences.css">
+</head>
+<body>
+    <div class="form-row">
+        <label for="ffmpegPathInput"><code>FFmpeg</code> Path</label>
+        <input type="text" id="ffmpegPathInput" placeholder="/path/to/ffmpeg | default: ffmpeg" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+    </div>
+
+    <div class="form-row">
+        <label for="tonemapSelect">Tonemap Algorithm</label>
+        <select id="tonemapSelect">
+            <option value="none">None</option>
+            <option value="hable">Hable</option>
+            <option value="mobius">Mobius</option>
+            <option value="reinhard">Reinhard</option>
+            <option value="clip">Clip</option>
+        </select>
+
+        <div class="small secondary help-text">
+            <div><b>None:</b> Disables tone-mapping entirely</div>
+            <div><b>Hable:</b> Prioritizes detail preservation; slightly darkens the image</div>
+            <div><b>Mobius:</b> Prioritizes color accuracy and contrast preservation</div>
+            <div><b>Reinhard:</b> Preserves overall brightness; flattens details and degrades colors</div>
+            <div><b>Clip:</b> Perfect in-range colors; hard-clips out-of-range highlights</div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label for="zscaleSelect">Color Mapping: <code>zscale</code></label>
+        <select id="zscaleSelect">
+            <option value="false">Disabled</option>
+            <option value="true">Enabled (Reference Accuracy)</option>
+        </select>
+
+        <div class="small secondary help-text">
+            Requires <strong>FFmpeg</strong> with <code>--enable-libzimg</code>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="form-row">
+        <label for="keybindInput">Keybind</label>
+        <input type="text" id="keybindInput" data-type="string" placeholder="e.g. Meta+e" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+
+        <div class="small secondary help-text">
+            <div><b>Format:</b> <code>Modifier+Key</code> (e.g. <code>Meta+e</code>, <code>Ctrl+Alt+LEFT</code>, <code>Shift+F5</code>)</div>
+            <div><b>Modifiers:</b> <code>Meta</code> (⌘), <code>Ctrl</code>, <code>Alt</code>, <code>Shift</code></div>
+            <div>Leave empty to disable keybind</div>
+        </div>
+
+        <div class="info-box warning" id="keybindValidation">Validating keybind...</div>
+
+        <div class="info-box info">ⓘ Requires IINA restart to take effect</div>
+    </div>
+
+    <script src="preferences.js"></script>
+</body>
+</html>

@@ -1,28 +1,46 @@
-# IINA Userscript - Capture HDR Screenshot using FFmpeg
+# HDR Screenshot for IINA
 
-A user script that adds **Capture HDR Screenshot** functionality to [IINA media player](https://iina.io/).
-
-## Usage
-
-You can access the **Capture HDR Screenshot** feature in two ways:
-
-- **Menu**: Plugin → HDR Screenshot
-- **Keyboard shortcut**: `Cmd + E`
+FFmpeg-powered HDR to SDR screenshot capture plugin for [IINA media player](https://iina.io/).
 
 ## Features
 
-- Capture **HDR screenshot** of the current video frame
-- Uses `FFmpeg` with **Hable** tone mapping
-- Saves as **PNG** to IINA's screenshot output directory
+- **Tone-mapping**: HDR to SDR conversion using **Hable**, **Mobius**, **Reinhard**, or **Clip** algorithms
+- **Smart Output**:
+    - Saves directly to IINA's screenshot folder
+    - Filenames based on the original video name and timecode
+- **Configurable via plugin's Preferences**:
+    - Remap or disable the keybind
+    - Define a custom `FFmpeg` binary path
+    - Switch between **Tone-mapping** algorithms
+    - Enable reference-quality `zscale` filter
+
+## Usage
+
+Capture an **HDR Screenshot** in two ways:
+
+- **Menu**: `Plugin` → `HDR Screenshot`
+- **Keybind**: <kbd>⌘</kbd> + <kbd>E</kbd>
+
+> [!NOTE]
+> **Frame Accuracy:** Screenshots are captured at the **nearest keyframe**. The resulting image may not be the exact paused frame.
+
+### Prerequisites
+
+- **IINA** 1.4.0 or later
+- **FFmpeg**
+
+> [!IMPORTANT]
+> To use `zscale`, **FFmpeg** must be compiled with `--enable-libzimg`
 
 ## Installation
 
-1. Copy the content of [`hdr-screenshot.js`](https://github.com/bbeny123/iina-hdr-screenshot/blob/main/hdr-screenshot.js)  
-2. Open **IINA → Plugin → Manage User Scripts...** (or press `Cmd + Shift + U`)  
-3. Use the copied content to create a new user script  
-4. Restart **IINA**
+**Requirement**: IINA 1.4.0 or later.
 
-## Requirements
+Install the plugin using one of these methods:
 
-- IINA 1.4.0 or later
-- FFmpeg with `--enable-libzimg`
+- **GitHub**: In **IINA Settings** → **Plugins**, click **Install from GitHub...** and enter `bbeny123/iina-hdr-screenshot`
+- **Manual**: Download the `.iinaplgz` file from the [latest release](../../releases)
+
+## Alternative: Userscript
+
+This plugin is an extended version of the original single-file userscript (see [userscript/README.md](userscript/README.md) for details).

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="preferences.css">
+    <style>
+        @media (prefers-color-scheme: dark) {
+            html { color-scheme: dark; color: #eee; }
+        }
+        html, body { margin: 0; }
+        body { padding: 10px; }
+        ul { padding-left: 20px; margin-bottom: 16px; }
+        li { margin-bottom: 6px; }
+        kbd, code {
+            background: rgba(128, 128, 128, 0.15);
+            border: 1px solid rgba(128, 128, 128, 0.2);
+            border-radius: 4px;
+            padding: 1px 5px;
+            font-family: "SF Mono", "Menlo", monospace;
+            font-size: 0.9em;
+        }
+        strong { font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="form-row">
+        <label><b>How to Use</b></label>
+        <div class="help-text" style="margin-bottom: 12px;">
+            Capture HDR to SDR tone-mapped screenshot via:
+        </div>
+        <ul>
+            <li>Menu: <strong>Plugin → HDR Screenshot</strong></li>
+            <li>Keybind: <kbd>⌘</kbd> + <kbd>E</kbd> (customizable via <strong>Preferences</strong>)</li>
+        </ul>
+
+        <div class="info-box info" style="border-left: 3px solid #e67e22">
+            <label><b>⚠️ IINA API limitations:</b></label>
+            <ul style="margin-bottom: 0;">
+                <li><strong>Keybind conflict validation</strong> requires IINA restart and media load</li>
+                <li>Some binds may <strong>fail silently</strong> while appearing "Valid" in <strong>Preferences</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="form-row" style="margin-top: 20px;">
+        <label><b>Tonemap Algorithms</b></label>
+        <ul>
+            <li><strong>None:</strong> Disables tone-mapping entirely. Screenshot may be washed-out, overly dark, or clipped</li>
+            <li><strong>Hable:</strong> Preserves both dark and bright details, but slightly darkens the overall image</li>
+            <li><strong>Mobius:</strong> Prioritizes color accuracy and contrast preservation. May lose some details</li>
+            <li><strong>Reinhard:</strong> Preserves overall brightness using nonlinear contrast, but flattens details and degrades colors</li>
+            <li><strong>Clip:</strong> Hard-clips out-of-range values. Perfect in-range color accuracy, but distorts highlights</li>
+        </ul>
+    </div>
+
+    <div class="form-row" style="margin-top: 20px;">
+        <label><b>Color Mapping: zscale</b></label>
+        <ul>
+            <li><strong>Enabled:</strong> Provides reference-quality color conversion using <code>zimg</code>. Requires <strong>FFmpeg</strong> with <code>--enable-libzimg</code></li>
+            <li><strong>Disabled:</strong> Relies on <strong>FFmpeg's</strong> built-in <code>scale</code> filter. Colors may appear shifted, dark, or desaturated</li>
+        </ul>
+    </div>
+
+    <div class="info-box info" style="border-left: 3px solid #3498db; margin-top: 20px;">
+        <label><b>🎯 Frame Accuracy</b></label>
+        <div style="margin-top: 8px; margin-bottom: 6px;">
+            Screenshots are captured at the <strong>nearest keyframe</strong>. The resulting image may not be the exact paused frame.
+        </div>
+    </div>
+</body>
+</html>

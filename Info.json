@@ -1,0 +1,22 @@
+{
+  "identifier": "io.iina.hdr-screenshot",
+  "version": "1.0.0",
+  "name": "HDR Screenshot",
+  "description": "FFmpeg-powered HDR screenshot capture for IINA",
+  "author": {
+    "name": "Ch1re",
+    "url": "https://github.com/bbeny123"
+  },
+  "ghRepo": "bbeny123/iina-hdr-screenshot",
+  "ghVersion": 1,
+  "entry": "src/index.js",
+  "helpPage": "src/help.html",
+  "preferencesPage": "src/preferences.html",
+  "preferenceDefaults": {
+    "keybind": "Meta+e",
+    "ffmpegPath": "/opt/homebrew/bin/ffmpeg",
+    "tonemap": "reinhard",
+    "zscale": false
+  },
+  "permissions": ["show-osd", "file-system"]
+}
